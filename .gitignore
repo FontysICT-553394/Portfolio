@@ -49,3 +49,5 @@ logs
 
 # Intellij
 .idea
+
+PortfolioBackend/src/main/resources/application.properties
