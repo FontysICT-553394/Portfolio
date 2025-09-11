@@ -1,0 +1,16 @@
+# Use Maven with Eclipse Temurin JDK 21 as the build image
+FROM maven:3.9.6-eclipse-temurin-21 AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+# Build the application, skipping tests
+RUN mvn clean package -DskipTests
+
+# Use Eclipse Temurin JRE 21 as the runtime image
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+# Copy the built JAR from the build image
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
