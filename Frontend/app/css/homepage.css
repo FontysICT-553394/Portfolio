@@ -1,0 +1,32 @@
+.categories-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.category-block {
+    background: none;
+    border-radius: 0;
+    padding: 1rem 0;
+    min-width: 0;
+    text-align: left;
+    box-shadow: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.category-block:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
